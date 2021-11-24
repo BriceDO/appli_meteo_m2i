@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f1f1f1;
+    background: linear-gradient(45deg, #1068b6, #ec60a6);
+    background-size: cover;
+}
+
+#cadreEnglobant {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cadreVille {
+    text-align: center;
+    font-size: larger;
+    width: 30%;
+    margin: 3em auto;
+    padding: 10px;
+    background: linear-gradient(45deg, rgb(59, 50, 50), rgb(22, 28, 29));
+    border-radius: 15px;
+}
+
+.cadreInfoHeure {
+    width: 20%;
+    margin: 20px;
+    background: linear-gradient(45deg, rgb(59, 50, 50), rgb(22, 28, 29));
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.header {
+    text-align: center;
+}
+
+input {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#sendCity {
+    padding: 15px;
+}
