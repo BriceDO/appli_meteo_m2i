@@ -1,8 +1,20 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: #f1f1f1;
     background: linear-gradient(45deg, #1068b6, #ec60a6);
     background-size: cover;
+    background-repeat:no-repeat;
+    min-height: 100vh;
+}
+
+h1 {
+    margin: 1em 0 2em 0;
 }
 
 #cadreEnglobant {
@@ -19,18 +31,22 @@ body {
     padding: 10px;
     background: linear-gradient(45deg, rgb(59, 50, 50), rgb(22, 28, 29));
     border-radius: 15px;
+    line-height: 50px;
 }
 
 .cadreInfoHeure {
+    text-align: center;
     width: 20%;
     margin: 20px;
     background: linear-gradient(45deg, rgb(59, 50, 50), rgb(22, 28, 29));
     padding: 10px;
     border-radius: 15px;
+    line-height: 30px;
 }
 
 .header {
     text-align: center;
+    padding-top: 2em;
 }
 
 input {
@@ -40,13 +56,48 @@ input {
     width: 30%;
 }
 
+form {
+    display: flex;
+    justify-content: center;
+}
+
 #sendCity {
-    padding: 15px;
+    margin-left: 5px;
+    padding: 10px;
     border-radius: 20px;
     vertical-align: center;
+    font-size: large;
+    background-color: cornflowerblue;
+    border: none;
+    cursor: pointer;
+}
+
+#sendCity:hover {
+    background-color: #9ec8f8;
+    transition: all .3s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
 .msgAlerte {
-    font-size: 30px;
+    margin-top: 1em;
+    padding: 1em;
+    font-size: 20px;
+    text-align: center;
     color: crimson;
+    background-color: #9ec8f8;
+    display: none;
+}
+
+.msgAlerte2 {
+    margin-top: 1em;
+    padding: 1em;
+    font-size: 20px;
+    text-align: center;
+    color: crimson;
+    background-color: #9ec8f8;
+}
+
+@media screen and (max-width: 750px){
+    .cadreInfoHeure {
+        width: 70%;
+    }
 }

@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<title>API Meteo</title>
-<link rel="stylesheet" type="text/css"href="index.css">
+    <title>API Meteo</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
 </head>
+
 <body>
     <div class="header" id="header">
+
         <h1>STATION METEO</h1>
 
-        <form >
-            <input id="inputVille" placeholder="Entrez une ville.." type="text"> <button id="sendCity">Rechercher</button>
+        <form>
+            <input id="inputVille" placeholder="Entrez une ville..." type="text"> <button
+                id="sendCity">Rechercher</button>
         </form>
     </div>
-    
+
+    <div id="msgErreur">
+        <p class="msgAlerte" id="msgAlerteId">Attention, input vide ou incorrect ! Réésayez !</p>
+    </div>
+
     <div class="cadreVille">
         <h2 id="ville">Ville</h2>
         <p>Latitude : <span id="latitude"></span></p>
         <p>Longitude : <span id="longitude"></span></p>
     </div>
 
-    <div id="cadreEnglobant"></div>
+    <div id="cadreEnglobant">
+        
+    </div>
 
     <!-- Au miminium dans chaque case, date, heure, météo, icones -->
 
-<script src="index.js"></script>
+    <script src="index.js"></script>
 </body>
+
 </html>

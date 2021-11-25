@@ -6,8 +6,10 @@ let inputVille = document.getElementById('inputVille');
 let cadreHeure = document.getElementById('cadreEnglobant');
 let villeNom = document.getElementById('ville');
 let header = document.getElementById('header');
+let msgAlerte = document.getElementById('msgAlerteId');
 
 let ENDPOINT = 'http://api.openweathermap.org/data/2.5/forecast?&exclude=minutely&units=metric&lang=fr&appid=c6ef9babe707141b81f2f6ff31362a9c';
+
 
 /**
  * Fonction qui va faire appel à l'API
@@ -25,6 +27,7 @@ function appelAPI(event) {
     fetch(url)
     .then((response) => {
         if(response.ok) {
+            msgAlerte.className = 'msgAlerte';
             return response.json();
         }
     })
@@ -39,9 +42,7 @@ function appelAPI(event) {
     // Le troisième then va créer tous les cadres informations
     .then((creationCadre))
     // Si erreur du fetch
-    .catch((error) => {
-        console.log("y'a une erreur !"+error);
-    })
+    .catch(alerteInput);
 }
 
 /**
@@ -80,7 +81,7 @@ function creationCadre(data) {
         
         // Création d'une balise span température
         let spanTemp = document.createElement('span');
-        spanTemp.textContent = Math.round(data.list[i].main.temp)+"°. Météo : "+data.list[i].weather[0].description;
+        spanTemp.textContent = Math.round(data.list[i].main.temp)+"°C : "+data.list[i].weather[0].description;
         pTemp.append(spanTemp);
 
         // Création d'une balise img pour l'icone
@@ -114,7 +115,7 @@ function filtreHeure(date) {
 
          // A partir de ce tableau, je récupère uniquement l'heure
          let heure = tabHeureComplete.split(':')[0];
-         heure = isThereAZero(heure);
+         heure = nvHeure(heure);
 
      // Je return la syntaxe complète
      return "Le "+jour+"/"+mois+"/"+annee+" pour "+heure+"h."
@@ -127,41 +128,30 @@ function filtreHeure(date) {
  * Ne va pas affecter minuit (00h)
  */
 
-function isThereAZero(heure) {
+function nvHeure(heure) {
+
+    let maNvHeure = heure;
 
     // Si mon heure comporte un zéro et qu'il n'est pas 00 
     if (heure.split('')[0] == '0' && heure != '00') {
-
         // Je prends seulement le deuxième chiffre
-         maNvHeure = heure.split('')[1];
-
-         // return
-         console.log(maNvHeure);
-         return maNvheure;
-    }
+         maNvHeure = heure.split('')[1]; 
+    } 
+    return maNvHeure;
 }
 
-isThereAZero();
-
 /**
- * Fonction qui va alerter l'utilisateur si aucune ville n'a été entrée
+ * Fonction qui va alerter l'utilisateur si aucune ville ou une mauvaise ville a été entrée
  * mais qu'il appuie sur le bouton rechercher
  */
 
 function alerteInput() {
-    
-    if (ville.value == "" || null || undefined) {
 
-        let msgAlerte = document.createElement('p');
-        msgAlerte.textContent = "Attention, input vide ou incorrect ! Réésayez !";
-        msgAlerte.className('msgAlerte');
-        header.after(msgAlerte);
-        return;
-
+    if (ville.value == "" || ville.value == null || ville.value == undefined) {
+        msgAlerte.className = 'msgAlerte2';
     }
 
 }
 
 // Je rajoute l'appel à l'API et le filtreHeure au clique du bouton recherche
-btnCity.addEventListener('click', alerteInput);
 btnCity.addEventListener('click', appelAPI);
