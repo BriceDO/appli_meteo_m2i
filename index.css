@@ -8,6 +8,7 @@ body {
 #cadreEnglobant {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .cadreVille {
@@ -33,10 +34,19 @@ body {
 }
 
 input {
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
+    font-size: 25px;
+    width: 30%;
 }
 
 #sendCity {
     padding: 15px;
+    border-radius: 20px;
+    vertical-align: center;
+}
+
+.msgAlerte {
+    font-size: 30px;
+    color: crimson;
 }
