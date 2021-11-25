@@ -1,1 +1,1 @@
-Il s'agit d'un exercice d'API en récupérant les informations météorlogiques du site openweathermap.org dans le cadre de la formation M2i.
+Il s'agit d'un exercice d'API qui récupère les informations météorologiques du site openweathermap.org dans le cadre de la formation M2i.
