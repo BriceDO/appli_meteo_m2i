@@ -8,7 +8,7 @@ let villeNom = document.getElementById('ville');
 let header = document.getElementById('header');
 let msgAlerte = document.getElementById('msgAlerteId');
 
-let ENDPOINT = 'http://api.openweathermap.org/data/2.5/forecast?&exclude=minutely&units=metric&lang=fr&appid=c6ef9babe707141b81f2f6ff31362a9c';
+let ENDPOINT = 'APIKEY';
 
 
 /**
